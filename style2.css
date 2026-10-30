@@ -4943,25 +4943,81 @@ html {
         grid-column: auto;
     }
 }
-@media (max-width: 1000px) {
-    .menu-toggle {
-        display: flex;
+
+
+/* ===== MOBILE HAMBURGER VISIBILITY FIX =====
+   The header is olive, so olive hamburger lines disappear.
+   Use the existing brand gold for contrast; no layout redesign.
+*/
+@media screen and (max-width: 1000px) {
+    .site-header .menu-toggle {
+        display: flex !important;
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        padding: 10px;
+        flex: 0 0 44px;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         gap: 5px;
-        cursor: pointer;
-        z-index: 1001;
+        margin-left: auto;
+        position: relative;
+        z-index: 1002;
+        visibility: visible !important;
+        opacity: 1 !important;
+        background: transparent !important;
+        border: 1px solid var(--limitless-yellow) !important;
+        border-radius: 4px;
     }
 
-    .nav-panel {
+    .site-header .menu-toggle span {
+        display: block !important;
+        width: 100%;
+        height: 2px;
+        margin: 0;
+        flex: 0 0 2px;
+        background-color: var(--limitless-yellow) !important;
+        border-radius: 2px;
+    }
+
+    .site-header .nav-panel {
+        z-index: 1001;
+    }
+}
+/* MOBILE MENU FIX */
+
+@media screen and (max-width: 1000px) {
+
+    .site-header .menu-toggle {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        position: relative;
+        z-index: 1002;
+        cursor: pointer;
+    }
+
+    .site-header .menu-toggle span {
+        display: block !important;
+        width: 24px;
+        height: 2px;
+        background-color: #F2C94C !important;
+    }
+
+    .site-header .nav-panel {
         display: none;
+    }
+
+    .site-header .nav-panel.is-open {
+        display: flex !important;
+        flex-direction: column;
         position: absolute;
         top: 100%;
         left: 0;
+        right: 0;
         width: 100%;
-    }
-
-    .nav-panel.is-open {
-        display: flex;
-        flex-direction: column;
+        z-index: 1001;
     }
 }

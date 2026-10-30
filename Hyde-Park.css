@@ -1,0 +1,552 @@
+
+/* =========================
+   Variables & Global Rules
+========================= */
+
+:root {
+    --white: #FFFFFF;
+    --black: #0D0D0D;
+    --olive: #3A4434;
+    --gold: #F2C94C;
+    --light-bg: #F8F7F3;
+    --border: #E5E5E5;
+    --text-muted: #555555;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--white);
+    color: var(--black);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* =========================
+   Navigation
+========================= */
+
+.details-header {
+    width: 100%;
+    min-height: 70px;
+    padding: 10px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--white);
+    border-bottom: 1px solid #E7E7E3;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.logo img {
+    width: auto;
+    height: 48px;
+    max-width: min(190px, 48vw);
+    object-fit: contain;
+}
+
+.back-link {
+    color: var(--olive);
+    border: 1px solid rgba(58, 68, 52, 0.28);
+    border-radius: 999px;
+    padding: 11px 17px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: var(--gold);
+    border-color: var(--gold);
+    color: var(--black);
+}
+
+/* =========================
+   Hyde Park Hero
+========================= */
+
+.project-hero.hyde-hero {
+    min-height: 540px;
+    width: 100%;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 80px 7%;
+    text-align: left;
+    color: var(--white);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.85) 0%,
+            rgba(0, 0, 0, 0.60) 48%,
+            rgba(0, 0, 0, 0.15) 100%
+        ),
+        url("image/hyde_park.png") center center / cover no-repeat;
+}
+
+/* Disable the old decorative hero overlays */
+
+.project-hero.hyde-hero::before,
+.project-hero.hyde-hero::after {
+    content: none;
+    display: none;
+}
+
+.hyde-hero-content {
+    width: 100%;
+    max-width: 650px;
+    position: relative;
+    z-index: 2;
+}
+
+.hyde-hero .eyebrow {
+    margin-bottom: 20px;
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+}
+
+.hyde-hero h1 {
+    margin: 15px 0;
+    color: var(--white);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(45px, 7vw, 75px);
+    font-weight: 400;
+    letter-spacing: 0.07em;
+    line-height: 1.1;
+}
+
+.hyde-description {
+    max-width: 600px;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.hyde-hero .hero-highlight {
+    margin-top: 15px;
+    color: var(--gold);
+    font-size: 16px;
+}
+
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+    padding: 14px 26px;
+    border-radius: 30px;
+    background-color: var(--gold);
+    color: var(--black);
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.hero-btn:hover {
+    background-color: var(--olive);
+    color: var(--white);
+}
+
+/* =========================
+   Property Section
+========================= */
+
+.property-section {
+    padding: 85px 7%;
+    background-color: var(--white);
+}
+
+.section-heading {
+    max-width: 680px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.section-heading .eyebrow {
+    margin-bottom: 15px;
+    color: var(--olive);
+}
+
+.section-heading h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(29px, 4vw, 42px);
+    font-weight: 400;
+    color: var(--olive);
+    line-height: 1.25;
+    margin-bottom: 15px;
+}
+
+.section-heading > p:last-child {
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+/* =========================
+   Property Cards
+========================= */
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+    align-items: stretch;
+    margin-top: 35px;
+}
+
+.property-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(13, 13, 13, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 35px rgba(13, 13, 13, 0.12);
+}
+
+.property-card > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+/* =========================
+   Property Information
+========================= */
+
+.property-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 28px;
+}
+
+.property-info .eyebrow {
+    margin-bottom: 10px;
+    color: var(--olive);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+.property-info h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    font-weight: 400;
+    color: var(--olive);
+    line-height: 1.3;
+    margin-bottom: 14px;
+}
+
+.property-info > p:not(.eyebrow) {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+/* =========================
+   Property Details
+========================= */
+
+.property-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 25px;
+    border-top: 1px solid var(--border);
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.detail-item span {
+    color: #666666;
+    font-size: 13px;
+}
+
+.detail-item strong {
+    color: var(--olive);
+    font-size: 14px;
+    text-align: right;
+}
+
+/* =========================
+   Property Buttons
+========================= */
+
+.property-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    margin-top: auto;
+    padding: 13px 24px;
+    min-height: 48px;
+    background-color: var(--gold);
+    color: var(--black);
+    border: 1px solid var(--gold);
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.property-btn:hover {
+    background-color: var(--olive);
+    border-color: var(--olive);
+    color: var(--white);
+}
+
+/* =========================
+   Contact CTA
+========================= */
+
+.contact-cta {
+    padding: 70px 7%;
+    text-align: center;
+    background-color: var(--olive);
+}
+
+.contact-cta .eyebrow {
+    color: var(--gold);
+}
+
+.contact-cta h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+.contact-cta > p:not(.eyebrow) {
+    max-width: 550px;
+    margin: 0 auto 25px;
+    color: var(--white);
+    font-size: 15px;
+}
+
+.contact-cta .property-btn {
+    margin-top: 0;
+}
+
+/* =========================
+   Footer
+========================= */
+
+.details-footer {
+    padding: 25px 7%;
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    font-size: 12px;
+}
+
+/* =========================
+   Responsive - Tablet
+========================= */
+
+@media (max-width: 900px) {
+    .property-section {
+        padding: 70px 6%;
+    }
+
+    .property-grid {
+        gap: 20px;
+    }
+
+    .property-info {
+        padding: 22px;
+    }
+}
+
+/* =========================
+   Responsive - Mobile
+========================= */
+
+@media (max-width: 768px) {
+    .details-header {
+        min-height: 65px;
+        padding: 10px 5%;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    .back-link {
+        padding: 9px 13px;
+        font-size: 12px;
+    }
+
+    .project-hero.hyde-hero {
+        min-height: 480px;
+        padding: 60px 7%;
+        background-position: center center;
+    }
+
+    .hyde-hero h1 {
+        font-size: clamp(38px, 9vw, 55px);
+    }
+
+    .hyde-description {
+        font-size: 15px;
+    }
+
+    .hyde-hero .hero-highlight {
+        font-size: 14px;
+    }
+
+    .property-section {
+        padding: 55px 5%;
+    }
+
+    .section-heading {
+        margin-bottom: 30px;
+    }
+
+    .property-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .property-info {
+        padding: 22px;
+    }
+
+    .property-info h3 {
+        font-size: 23px;
+    }
+
+    .contact-cta {
+        padding: 55px 5%;
+    }
+
+    .detail-item {
+        gap: 10px;
+    }
+}
+
+/* =========================
+   Small Mobile
+========================= */
+
+@media (max-width: 360px) {
+    .details-header {
+        flex-wrap: wrap;
+    }
+
+    .project-hero.hyde-hero {
+        min-height: 450px;
+        padding: 50px 6%;
+    }
+
+    .hyde-hero h1 {
+        font-size: 35px;
+    }
+
+    .hero-btn {
+        padding: 12px 18px;
+        font-size: 13px;
+    }
+
+    .property-info {
+        padding: 16px;
+    }
+
+    .detail-item strong {
+        font-size: 12px;
+    }
+}
+
+/* =========================
+   Reduced Motion
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
+.hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 28px;
+    background: #F2C94C;
+    color: #173D32;
+    text-decoration: none;
+    font-weight: 600;
+     border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.hero-btn span {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.hero-btn:hover {
+    background: #173D32;
+    color: #F2C94C;
+}
+
+.hero-btn:hover span {
+    transform: translateX(5px);
+}
